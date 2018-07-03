@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>第二天了 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="BIN介绍了其定义和特点，主要难度较大所以一定是要根据自己的兴趣合理选择并且坚持进行下去 webRE 即逆向工程分为攻和防 攻指软件分析技术，具体包括恶意程序分析，破解盗版，打补丁，漏洞挖掘等 防指软件保护技术，具体包括代码混淆，代码虚拟化，代码扁平化等 PWN软件漏洞挖掘-&amp;gt;分析-&amp;gt;利用-&amp;gt;修补 漏洞类型缓冲区溢出，整数溢出，格式化字符串，释放后使用 资料推荐*《核心原理 逆向">
+  <meta name="description" content="Bin以及ob部分基础介绍">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第二天了">
 <meta property="og:url" content="http://yoursite.com/2018/07/01/第二天了/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="BIN介绍了其定义和特点，主要难度较大所以一定是要根据自己的兴趣合理选择并且坚持进行下去 webRE 即逆向工程分为攻和防 攻指软件分析技术，具体包括恶意程序分析，破解盗版，打补丁，漏洞挖掘等 防指软件保护技术，具体包括代码混淆，代码虚拟化，代码扁平化等 PWN软件漏洞挖掘-&amp;gt;分析-&amp;gt;利用-&amp;gt;修补 漏洞类型缓冲区溢出，整数溢出，格式化字符串，释放后使用 资料推荐*《核心原理 逆向">
+<meta property="og:description" content="Bin以及ob部分基础介绍">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/OnP8qpx.png">
 <meta property="og:image" content="https://i.imgur.com/V972yoW.png">
@@ -21,10 +21,10 @@
 <meta property="og:image" content="https://i.imgur.com/6DlJlnZ.png">
 <meta property="og:image" content="https://i.imgur.com/RkbP8hf.png">
 <meta property="og:image" content="https://i.imgur.com/Yt9yaNb.png">
-<meta property="og:updated_time" content="2018-07-02T07:22:53.068Z">
+<meta property="og:updated_time" content="2018-07-03T09:21:45.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二天了">
-<meta name="twitter:description" content="BIN介绍了其定义和特点，主要难度较大所以一定是要根据自己的兴趣合理选择并且坚持进行下去 webRE 即逆向工程分为攻和防 攻指软件分析技术，具体包括恶意程序分析，破解盗版，打补丁，漏洞挖掘等 防指软件保护技术，具体包括代码混淆，代码虚拟化，代码扁平化等 PWN软件漏洞挖掘-&amp;gt;分析-&amp;gt;利用-&amp;gt;修补 漏洞类型缓冲区溢出，整数溢出，格式化字符串，释放后使用 资料推荐*《核心原理 逆向">
+<meta name="twitter:description" content="Bin以及ob部分基础介绍">
 <meta name="twitter:image" content="https://i.imgur.com/OnP8qpx.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -181,7 +181,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="BIN"><a href="#BIN" class="headerlink" title="BIN"></a>BIN</h1><p>介绍了其定义和特点，主要难度较大所以一定是要根据自己的兴趣合理选择并且坚持进行下去</p>
+        <p>Bin以及ob部分基础介绍<br><a id="more"></a></p>
+<h1 id="BIN"><a href="#BIN" class="headerlink" title="BIN"></a>BIN</h1><p>介绍了其定义和特点，主要难度较大所以一定是要根据自己的兴趣合理选择并且坚持进行下去</p>
 <h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h2 id="RE-即逆向工程"><a href="#RE-即逆向工程" class="headerlink" title="RE 即逆向工程"></a>RE 即逆向工程</h2><p>分为攻和防</p>
 <h3 id="攻"><a href="#攻" class="headerlink" title="攻"></a>攻</h3><p>指软件分析技术，具体包括恶意程序分析，破解盗版，打补丁，漏洞挖掘等</p>
 <h3 id="防"><a href="#防" class="headerlink" title="防"></a>防</h3><p>指软件保护技术，具体包括代码混淆，代码虚拟化，代码扁平化等</p>
