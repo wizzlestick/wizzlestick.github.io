@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>9527</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="—)title: Kali Linux安装配置和优化date: 2018-07-15 17:35:58 tags:(一)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="9527">
+<meta property="og:url" content="http://wizzlestick.github.io/2018/07/15/Kali-Linux安装配置和优化/index.html">
+<meta property="og:site_name" content="9527">
+<meta property="og:description" content="—)title: Kali Linux安装配置和优化date: 2018-07-15 17:35:58 tags:(一)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-15T10:34:30.987Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="9527">
+<meta name="twitter:description" content="—)title: Kali Linux安装配置和优化date: 2018-07-15 17:35:58 tags:(一)">
+  
+    <link rel="alternate" href="/atom.xml" title="9527" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">9527</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://wizzlestick.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Kali-Linux安装配置和优化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/15/Kali-Linux安装配置和优化/" class="article-date">
+  <time datetime="2018-07-15T09:35:58.738Z" itemprop="datePublished">2018-07-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>—)<br>title: Kali Linux安装配置和优化<br>date: 2018-07-15 17:35:58</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>(一)<br><a id="more"></a></p>
+<h1 id="渗透测试和Kali-Linux介绍"><a href="#渗透测试和Kali-Linux介绍" class="headerlink" title="渗透测试和Kali Linux介绍"></a>渗透测试和Kali Linux介绍</h1><h2 id="渗透测试简介"><a href="#渗透测试简介" class="headerlink" title="渗透测试简介"></a>渗透测试简介</h2><h3 id="渗透测试定义"><a href="#渗透测试定义" class="headerlink" title="渗透测试定义"></a>渗透测试定义</h3><pre><code>1.尝试挫败安全防御机制,发现系统安全弱点(从攻击者的角度进行)
+2.从攻击者的角度思考,测量安全防护有效性
+3.证明安全问题的存在,而非破坏
+</code></pre><h3 id="渗透测试标准"><a href="#渗透测试标准" class="headerlink" title="渗透测试标准"></a>渗透测试标准</h3><p> <a href="http://www.pentest-standard.org./index.php/Main_Page" target="_blank" rel="noopener">PETS</a></p>
+<h4 id="渗透测试基本过程"><a href="#渗透测试基本过程" class="headerlink" title="渗透测试基本过程"></a>渗透测试基本过程</h4><pre><code>1.前期交互阶段(渗透工作员和客户商量好相关工作要求以及人力时间要求等)
+2.情报收集阶段(渗透工作员确定工作后对目标系统进行搜集相关的情报)
+3.威胁建模阶段(从搜集到的信息中确定部分最高效快捷能够渗透进入系统的途径)
+4.漏洞分析阶段(查看目标服务器是否已经有公开的漏洞并是否有所利用,可能会编写一些有针对性的漏洞攻击代码)
+5.渗透攻击阶段(当不成顺利的时候,需要重新从搜集新的情报开始)
+6.后渗透测试阶段(当渗透成功后,获得一台目标服务器的控制权之后,用这一台服务器,进一步向内网进行进一步的渗透)
+7.渗透测试报告(发现,利用,攻击,控制网络,以及如何修复避免被真正的黑客利用)
+</code></pre><h3 id="渗透测试误区"><a href="#渗透测试误区" class="headerlink" title="渗透测试误区"></a>渗透测试误区</h3><pre><code>有关扫描器:扫描器只能扫描到常见型技术性漏洞,对业务逻辑层面的漏洞是无能为力的
+eg:一个系统分经理和普通员工两个权限，现在普通员工登录可以查看经理级别才能有的操作,这就是逻辑层次的漏洞，安全扫描器是检测不到的
+所以,不能过分依赖扫描器!!!
+</code></pre><h2 id="Kali-Linux简介"><a href="#Kali-Linux简介" class="headerlink" title="Kali Linux简介"></a>Kali Linux简介</h2><pre><code>1.基于Debian的Linux发行版本
+2.前身是BackTrack,于2013年3月发布
+3.用于渗透测试和安全审计
+4.包含600+安全工具(逆性工程,电子取证等)
+5.FHS标准目录结构
+6.定制内核
+7.支持ARM和手机平台
+8.开源免费
+</code></pre><h3 id="Kali-Linux策略"><a href="#Kali-Linux策略" class="headerlink" title="Kali Linux策略"></a>Kali Linux策略</h3><pre><code>Root用户策略(直接用root权限登录使用,不用注册普通权限用户)
+网络服务策略(默认所有网络服务全是关闭,手动启动)
+更新升级策略
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://wizzlestick.github.io/2018/07/15/Kali-Linux安装配置和优化/" data-id="cjjpdsnzu0000u8tj5rfg9e5b" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/10/第十一天了/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">第十一天了</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/15/Kali-Linux安装配置和优化/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/10/第十一天了/">第十一天了</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/04/第五天了/">第五天了</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/03/swapp调试/">第四天了</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/02/还依旧第三天/">还依旧第三天</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 9527<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
