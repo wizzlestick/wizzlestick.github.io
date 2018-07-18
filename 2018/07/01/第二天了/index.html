@@ -1,39 +1,719 @@
-extends includes/layout
+<!DOCTYPE html>
 
-block content
 
-    section#wrapper.post
-        article
-            header
-                h1!=page.title
-                h2.headline!=date(page.date, 'MMM DD, YYYY h:mm')
-                    |·
-                    |#{wordcount(page.content)} words
-                    |·
-                    |#{min2read(page.content)} minutes read
-                    span.tags
 
-            if toc(page.content)
-                div#toc!=toc(page.content,{list_number:false})
+  
 
-            section#post-body!=page.content
 
-            - var prev = page.prev ? page.prev.path : false;
-            - var next = page.next ? page.next.path : false;
-            nav#post-nav
-                span.prev
-                    if page.prev
-                        a(href=url_for(prev))
-                            span.arrow ←
-                            | Newer Posts
-                span.next
-                    if page.next
-                        a(href=url_for(next))
-                            | Older Posts
-                            span.arrow →
-
-            include includes/comment.pug
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
 
 
 
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Thea" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Bin以及ob部分基础介绍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二天了">
+<meta property="og:url" content="http://wizzlestick.github.io/2018/07/01/第二天了/index.html">
+<meta property="og:site_name" content="Thea">
+<meta property="og:description" content="Bin以及ob部分基础介绍">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/OnP8qpx.png">
+<meta property="og:image" content="https://i.imgur.com/V972yoW.png">
+<meta property="og:image" content="https://i.imgur.com/nZx4Hc1.png">
+<meta property="og:image" content="https://i.imgur.com/6DlJlnZ.png">
+<meta property="og:image" content="https://i.imgur.com/RkbP8hf.png">
+<meta property="og:image" content="https://i.imgur.com/Yt9yaNb.png">
+<meta property="og:updated_time" content="2018-07-03T09:21:45.380Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第二天了">
+<meta name="twitter:description" content="Bin以及ob部分基础介绍">
+<meta name="twitter:image" content="https://i.imgur.com/OnP8qpx.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wizzlestick.github.io/2018/07/01/第二天了/"/>
+
+
+
+
+
+  <title>第二天了 | Thea</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Thea</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wizzlestick.github.io/2018/07/01/第二天了/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Thea">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Thea">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">第二天了</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-01T21:10:58+08:00">
+                2018-07-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Bin以及ob部分基础介绍<br><a id="more"></a></p>
+<h1 id="BIN"><a href="#BIN" class="headerlink" title="BIN"></a>BIN</h1><p>介绍了其定义和特点，主要难度较大所以一定是要根据自己的兴趣合理选择并且坚持进行下去</p>
+<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h2 id="RE-即逆向工程"><a href="#RE-即逆向工程" class="headerlink" title="RE 即逆向工程"></a>RE 即逆向工程</h2><p>分为攻和防</p>
+<h3 id="攻"><a href="#攻" class="headerlink" title="攻"></a>攻</h3><p>指软件分析技术，具体包括恶意程序分析，破解盗版，打补丁，漏洞挖掘等</p>
+<h3 id="防"><a href="#防" class="headerlink" title="防"></a>防</h3><p>指软件保护技术，具体包括代码混淆，代码虚拟化，代码扁平化等</p>
+<h2 id="PWN"><a href="#PWN" class="headerlink" title="PWN"></a>PWN</h2><h3 id="软件漏洞"><a href="#软件漏洞" class="headerlink" title="软件漏洞"></a>软件漏洞</h3><p>挖掘-&gt;分析-&gt;利用-&gt;修补</p>
+<h3 id="漏洞类型"><a href="#漏洞类型" class="headerlink" title="漏洞类型"></a>漏洞类型</h3><p>缓冲区溢出，整数溢出，格式化字符串，释放后使用</p>
+<h2 id="资料推荐"><a href="#资料推荐" class="headerlink" title="资料推荐"></a>资料推荐</h2><p>*《核心原理 逆向工程》</p>
+<h1 id="汇编语言初探"><a href="#汇编语言初探" class="headerlink" title="汇编语言初探"></a>汇编语言初探</h1><h2 id="C语言代码-汇编指令-机器码"><a href="#C语言代码-汇编指令-机器码" class="headerlink" title="C语言代码 汇编指令 机器码"></a>C语言代码 汇编指令 机器码</h2><p>机器只能识别机器码，C语言代码通过汇编指令转化成机器码</p>
+<h2 id="数值表示"><a href="#数值表示" class="headerlink" title="数值表示"></a>数值表示</h2><h3 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h3><p>二进制后有标志b，十进制是标志d，十六进制是标志h<br>Eg：01010 后面没有任何标志是默认为十进制</p>
+<h3 id="字长"><a href="#字长" class="headerlink" title="字长"></a>字长</h3><p>Bit：位 </p>
+<p>Byte：字节，与char对应，一个字节占8位</p>
+<p>Word：一个Word占两个字节</p>
+<h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><h3 id="8-1-1种常用寄存器"><a href="#8-1-1种常用寄存器" class="headerlink" title="8+1+1种常用寄存器"></a>8+1+1种常用寄存器</h3><p>EAX ECX EDX EBX ESP EBP ESI EDI 这八种可以存任何类型的东西，其中部分有其特殊使用功能</p>
+<h3 id="标志寄存器"><a href="#标志寄存器" class="headerlink" title="标志寄存器"></a>标志寄存器</h3><p>ZF  标志上次运行结果是否为0 </p>
+<h3 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h3><h4 id="立即数寻址"><a href="#立即数寻址" class="headerlink" title="立即数寻址"></a>立即数寻址</h4><p>MOV EAX,123H 表示将123h这个数值赋给EAX</p>
+<h4 id="寄存器寻址"><a href="#寄存器寻址" class="headerlink" title="寄存器寻址"></a>寄存器寻址</h4><p>MOV EAX,EBX 表示将EBX里的东西赋给EAX</p>
+<h3 id="直接寻址"><a href="#直接寻址" class="headerlink" title="# 直接寻址"></a># 直接寻址</h3><p>MOV EAX,[12345678h] 表示将12345678H这个地址里的内容赋给EAX</p>
+<h4 id="寄存器间接寻址"><a href="#寄存器间接寻址" class="headerlink" title="寄存器间接寻址"></a>寄存器间接寻址</h4><p>MOV EAX,[EBX] 表示将EBX里存的东西赋给EAX</p>
+<p>总结：123h直接数字则就是表示数值，[ ]相当于c语言里的&amp;，即取括号里地址所对应的值</p>
+<h2 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h2><h3 id="数据传送"><a href="#数据传送" class="headerlink" title="数据传送"></a>数据传送</h3><p>MOV：等同于copy，赋值 PUSH:入栈 ，POP：出栈， LEA：获取有效地址里的内容（等同于&amp;） ，等</p>
+<h3 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h3><p>(ADD：等同于+ ，SUB：等同于-)，(TNC，DEC)</p>
+<p>eg：ADD EAX 1 =&gt; EAX+=1</p>
+<p>INC EAX =&gt; EAX++</p>
+<p>NEG:取反，CMP：比较，MUL：乘法运算 ，等</p>
+<h3 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h3><p>AND OR NOT XOR TEST，等</p>
+<h1 id="Ollydbg"><a href="#Ollydbg" class="headerlink" title="Ollydbg"></a>Ollydbg</h1><p>直接将运行程序拖到代码区域即可</p>
+<h2 id="区域展示"><a href="#区域展示" class="headerlink" title="区域展示"></a>区域展示</h2><p><img src="https://i.imgur.com/OnP8qpx.png" alt=""></p>
+<p><img src="https://i.imgur.com/V972yoW.png" alt=""></p>
+<p><img src="https://i.imgur.com/nZx4Hc1.png" alt=""></p>
+<p><img src="https://i.imgur.com/6DlJlnZ.png" alt=""></p>
+<h2 id="其他窗口"><a href="#其他窗口" class="headerlink" title="其他窗口"></a>其他窗口</h2><p>L(og):日志信息</p>
+<p>E(xecute modules):模块信息</p>
+<p>M(emory map):内存映射信息</p>
+<p>T(hreads):线程信息</p>
+<p>W(indows):窗口信息</p>
+<p>H(andles):句柄信息</p>
+<p>C:当前线程上下文</p>
+<p>K:调用链信息，等等</p>
+<h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><p><img src="https://i.imgur.com/RkbP8hf.png" alt=""></p>
+<p><img src="https://i.imgur.com/Yt9yaNb.png" alt=""></p>
+<h1 id="找到主函数的几种方法"><a href="#找到主函数的几种方法" class="headerlink" title="找到主函数的几种方法"></a>找到主函数的几种方法</h1><p>1.层层递进（F8）</p>
+<p>一直重复按F8运行，当光标不在向下时说明此处是主函数或者是主函数的内部</p>
+<p>2.字符串检索法</p>
+<p>任意页面右键 -&gt; 搜索 -&gt; 智能搜索 （字符串可以检索的）</p>
+<h1 id="修改输出"><a href="#修改输出" class="headerlink" title="修改输出"></a>修改输出</h1><p>1.找到主函数</p>
+<p>2.在内存区选择Ctrl g,在弹框中输入找到的主函数的后缀的地址，确定</p>
+<p>3.选中内存区中的主函数部分，Ctrl e，在弹框中修改掉输出即可</p>
+<p>注：只能修改一次输出框，ctrl f2重新运行后结果还是原来的输出</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/01/~$第二天了/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Thea</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BIN"><span class="nav-number">1.</span> <span class="nav-text">BIN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#web"><span class="nav-number">1.1.</span> <span class="nav-text">web</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RE-即逆向工程"><span class="nav-number">1.2.</span> <span class="nav-text">RE 即逆向工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#攻"><span class="nav-number">1.2.1.</span> <span class="nav-text">攻</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防"><span class="nav-number">1.2.2.</span> <span class="nav-text">防</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PWN"><span class="nav-number">1.3.</span> <span class="nav-text">PWN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件漏洞"><span class="nav-number">1.3.1.</span> <span class="nav-text">软件漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞类型"><span class="nav-number">1.3.2.</span> <span class="nav-text">漏洞类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资料推荐"><span class="nav-number">1.4.</span> <span class="nav-text">资料推荐</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#汇编语言初探"><span class="nav-number">2.</span> <span class="nav-text">汇编语言初探</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C语言代码-汇编指令-机器码"><span class="nav-number">2.1.</span> <span class="nav-text">C语言代码 汇编指令 机器码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数值表示"><span class="nav-number">2.2.</span> <span class="nav-text">数值表示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进制"><span class="nav-number">2.2.1.</span> <span class="nav-text">进制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字长"><span class="nav-number">2.2.2.</span> <span class="nav-text">字长</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器"><span class="nav-number">2.3.</span> <span class="nav-text">寄存器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-1种常用寄存器"><span class="nav-number">2.3.1.</span> <span class="nav-text">8+1+1种常用寄存器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标志寄存器"><span class="nav-number">2.3.2.</span> <span class="nav-text">标志寄存器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寻址方式"><span class="nav-number">2.3.3.</span> <span class="nav-text">寻址方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#立即数寻址"><span class="nav-number">2.3.3.1.</span> <span class="nav-text">立即数寻址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#寄存器寻址"><span class="nav-number">2.3.3.2.</span> <span class="nav-text">寄存器寻址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接寻址"><span class="nav-number">2.3.4.</span> <span class="nav-text"># 直接寻址</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#寄存器间接寻址"><span class="nav-number">2.3.4.1.</span> <span class="nav-text">寄存器间接寻址</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本指令"><span class="nav-number">2.4.</span> <span class="nav-text">基本指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据传送"><span class="nav-number">2.4.1.</span> <span class="nav-text">数据传送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算术运算"><span class="nav-number">2.4.2.</span> <span class="nav-text">算术运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算"><span class="nav-number">2.4.3.</span> <span class="nav-text">逻辑运算</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ollydbg"><span class="nav-number">3.</span> <span class="nav-text">Ollydbg</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#区域展示"><span class="nav-number">3.1.</span> <span class="nav-text">区域展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他窗口"><span class="nav-number">3.2.</span> <span class="nav-text">其他窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用快捷键"><span class="nav-number">3.3.</span> <span class="nav-text">常用快捷键</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#找到主函数的几种方法"><span class="nav-number">4.</span> <span class="nav-text">找到主函数的几种方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改输出"><span class="nav-number">5.</span> <span class="nav-text">修改输出</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Thea</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
