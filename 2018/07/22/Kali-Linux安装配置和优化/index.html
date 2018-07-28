@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Thea">
 <meta property="og:description" content="渗透测试和Kali Linux介绍">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-28T09:10:36.345Z">
+<meta property="og:updated_time" content="2018-07-28T10:02:30.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kali Linux安装配置和优化">
 <meta name="twitter:description" content="渗透测试和Kali Linux介绍">
@@ -134,7 +134,7 @@
 
 
 
-  <title>Thea</title>
+  <title>Kali Linux安装配置和优化 | Thea</title>
   
 
 
@@ -153,8 +153,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://your-url" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -228,15 +227,182 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-  </section>
 
   
-  <nav class="pagination">
-    
-  </nav>
 
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wizzlestick.github.io/2018/07/22/Kali-Linux安装配置和优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Thea">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Thea">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Kali Linux安装配置和优化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-22T18:03:17+08:00">
+                2018-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> 渗透测试和Kali Linux介绍<br><a id="more"></a></p>
+<h2 id="渗透测试简介"><a href="#渗透测试简介" class="headerlink" title="渗透测试简介"></a>渗透测试简介</h2><h3 id="渗透测试定义"><a href="#渗透测试定义" class="headerlink" title="渗透测试定义"></a>渗透测试定义</h3><pre><code>1.尝试挫败安全防御机制,发现系统安全弱点(从攻击者的角度进行)
+2.从攻击者的角度思考,测量安全防护有效性
+3.证明安全问题的存在,而非破坏
+</code></pre><h3 id="渗透测试标准"><a href="#渗透测试标准" class="headerlink" title="渗透测试标准"></a>渗透测试标准</h3><pre><code>PETS
+</code></pre><h3 id="渗透测试基本过程"><a href="#渗透测试基本过程" class="headerlink" title="渗透测试基本过程"></a>渗透测试基本过程</h3><pre><code>1.前期交互阶段(渗透工作员和客户商量好相关工作要求以及人力时间要求等)
+2.情报收集阶段(渗透工作员确定工作后对目标系统进行搜集相关的情报)
+3.威胁建模阶段(从搜集到的信息中确定部分最高效快捷能够渗透进入系统的途径)
+4.漏洞分析阶段(查看目标服务器是否已经有公开的漏洞并是否有所利用,可能会编写一些有针对性的漏洞攻击代码)
+5.渗透攻击阶段(当不成顺利的时候,需要重新从搜集新的情报开始)
+6.后渗透测试阶段(当渗透成功后,获得一台目标服务器的控制权之后,用这一台服务器,进一步向内网进行进一步的渗透)
+7.渗透测试报告(发现,利用,攻击,控制网络,以及如何修复避免被真正的黑客利用)
+</code></pre><h3 id="渗透测试误区"><a href="#渗透测试误区" class="headerlink" title="渗透测试误区"></a>渗透测试误区</h3><pre><code>有关扫描器:扫描器只能扫描到常见型技术性漏洞,对业务逻辑层面的漏洞是无能为力的
+eg:一个系统分经理和普通员工两个权限，现在普通员工登录可以查看经理级别才能有的操作,这就是逻辑层次的漏洞，安全扫描器是检测不到的
+所以,不能过分依赖扫描器!!!
+</code></pre><h2 id="Kali-Linux简介"><a href="#Kali-Linux简介" class="headerlink" title="Kali Linux简介"></a>Kali Linux简介</h2><pre><code>1.基于Debian的Linux发行版本
+2.前身是BackTrack,于2013年3月发布
+3.用于渗透测试和安全审计
+4.包含600+安全工具(逆性工程,电子取证等)  
+5.FHS标准目录结构
+6.定制内核
+7.支持ARM和手机平台
+8.开源免费
+</code></pre><h3 id="Kali-Linux策略"><a href="#Kali-Linux策略" class="headerlink" title="Kali Linux策略"></a>Kali Linux策略</h3><pre><code>Root用户策略(直接用root权限登录使用,不用注册普通权限用户)
+网络服务策略(默认所有网络服务全是关闭,手动启动)    
+更新升级策略
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+
+    <div>
+  
+    <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+  
+    </div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/03/swapp调试/" rel="next" title="第四天了">
+                <i class="fa fa-chevron-left"></i> 第四天了
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/28/熟悉BASH命令/" rel="prev" title="熟悉BASH命令">
+                熟悉BASH命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -483,6 +649,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
